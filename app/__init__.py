@@ -86,6 +86,10 @@ def delete_time_line_post():
     TimelinePost.delete().where(TimelinePost.name==name).execute()
     return matches
 
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html',title="Timeline")
+
 #Database creation and connection
 class TimelinePost(Model):
     name = CharField()

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline</title>
+</head>
+
+<body onload="httpGetAsync('api/timeline_post')">
+    <form id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>All posts</h1>
+    <div id="timeline_records"></div>
+
+</body>
+
+</html>
+
+<script>
+    function httpGetAsync(theUrl)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() { 
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                //callback(xmlHttp.responseText);
+                appendData(xmlHttp.responseText)
+        }
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+        xmlHttp.send(null);
+    }
+
+    function appendData(data) {
+        json_data = JSON.parse(data).timeline_posts
+        for(let i=0;i<json_data.length;i++){
+            var p = document.createElement('p')
+            p.innerHTML = JSON.stringify(json_data[i])
+            document.getElementById("timeline_records").appendChild(p)
+        }
+    }
+
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const payload = new FormData(form);
+
+        fetch('/api/timeline_post', {
+            method: 'POST',
+            body: payload,
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        
+        location.reload()
+    })
+</script>
