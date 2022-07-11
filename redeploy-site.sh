@@ -2,10 +2,16 @@
 
 cd /root/project-kds_danieldiaz
 git fetch && git reset origin/main --hard
-python -m venv python3-virtualenv
-source python3-virtualenv/bin/activate
-pip install -r requirements.txt
-systemctl restart myportfolio
+docker compose -f docker-compose.prod.yml down
+docker compose -f docker-compose.prod.yml up -d --build
+
+
+#cd /root/project-kds_danieldiaz
+#git fetch && git reset origin/main --hard
+#python -m venv python3-virtualenv
+#source python3-virtualenv/bin/activate
+#pip install -r requirements.txt
+#systemctl restart myportfolio
 
 #session="portfolio_ddl29"
 #tmux new-session -d -s $session -c /root/project-kds_danieldiaz
