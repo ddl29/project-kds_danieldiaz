@@ -18,7 +18,7 @@ class AppTestCase(unittest.TestCase):
         # more tests relating to the home page
         assert "<h1>Kaitlyn Chau</h1>" in html
         assert "<h1>Set Lynn</h1>" in html
-        assert "<h1>Daniel Diaz</h1>" in html
+        assert "<h1>Daniel DL</h1>" in html
 
     def test_timeline(self):
         response = self.client.get("/api/timeline_post")
