@@ -30,3 +30,6 @@ jobs:
           
       - name: Deploy site
         run: ssh my-vps '~/redeploy-site.sh'
+      
+      - name: Print status
+        run: docker compose ps
