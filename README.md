@@ -5,6 +5,7 @@
 
 Team members Daniel Diaz, Kaitlyn Chau, and Set Lynn created a portfolio website that feature different personalities.
 I'm using GitHub Actions!
+Automatic redeployment!
 
 ## Inspiration
 We wanted to have a single place where we could put any teammates we are working with on a common project, so it can be a reference website of the creators behind that project!
