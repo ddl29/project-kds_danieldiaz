@@ -53,6 +53,15 @@
 .nav-logo img {
     width: 200px;
 }
+.nav-meta {
+    display: inline-block;
+    align-items: center;
+    justify-content: left;
+    padding-left: 2%;
+}
+.nav-meta img {
+    width: 200px;
+}
 
 .nav-content nav {
     display: inline-block;
