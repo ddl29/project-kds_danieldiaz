@@ -18,6 +18,10 @@
     height: 60px;
     margin: auto;
 }
+.nav-content .nav-meta {
+    height: 60px;
+    margin: auto;
+}
 
 .nav-bar ul{
     float: right;
