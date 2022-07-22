@@ -29,7 +29,6 @@ jobs:
           SSH_IP: ${{ secrets.SSH_IP }}
           
       - name: Deploy site
-        run: ssh my-vps '~/redeploy-site.sh'
-      
-      - name: Print status
-        run: docker compose ps
+        run: 
+          ssh my-vps '~/redeploy-site.sh'
+          docker compose ps
